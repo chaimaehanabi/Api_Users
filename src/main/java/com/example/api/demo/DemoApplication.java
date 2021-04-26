@@ -20,7 +20,7 @@ public class DemoApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         entityManager.save(new Utilisateur("chaimae", "hanabi", "cahimae@gmail.com"));
         entityManager.save(new Utilisateur("safae", "tazi", "safae@gmail.com"));
-        entityManager.save(new Utilisateur("sara", "barrada", "safae@gmail.com"));
+        entityManager.save(new Utilisateur("sara", "barrada", "sarae@gmail.com"));
         entityManager.findAll().forEach(c -> {
             System.out.println(c.toString());
         });
