@@ -20,13 +20,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 public class UserTest {
     @Autowired
-    UtilisateurRepository entityManager;
-
+    private UtilisateurRepository entityManager;
     @Test
     public void testMe() {
         System.out.println("Hello World!");
     }
-
     @Test
     @Rollback
     public void testCreateUsers() {
