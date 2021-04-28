@@ -37,7 +37,7 @@ public class UtilisateurController {
 
     ///add user
     @PostMapping("/users")
-    public Utilisateur createUtilisateur(@RequestBody Utilisateur Utilisateur, @RequestHeader(name = "X-RAM-PERSIST", required = true) String headerPersist) {
+    public Utilisateur createUtilisateur(@RequestBody Utilisateur Utilisateur) {
         return repository.save(new Utilisateur(Utilisateur.getNom(), Utilisateur.getPrenom(), Utilisateur.getEmail()));
     }
 

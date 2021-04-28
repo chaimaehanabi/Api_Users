@@ -34,7 +34,7 @@ public class UserTest {
     @Test
     @Rollback
     public void testCreateUsers() {
-        Utilisateur saveUsers = entityManager.save(new Utilisateur("nisrine", "amine", "cahimae@gmail.com"));
+        Utilisateur saveUsers = entityManager.save(new Utilisateur("dada", "amine", "cahimae@gmail.com"));
 //Et j’utilise assertThat () méthode de la bibliothèque AssertJ pour plus de lisibilité que d’utiliser les méthodes d’affirmation de JUnit
         assertThat(saveUsers.getId()).isGreaterThan(0);
     }
@@ -47,8 +47,8 @@ public class UserTest {
 
     @Test
     public void testFindByName() {
-        Utilisateur users = entityManager.findBynom("safae");
-        assertThat(users.getNom()).isEqualTo("safae");
+        Utilisateur users = entityManager.findBynom("aya");
+        assertThat(users.getNom()).isEqualTo("aya");
     }
 
 
