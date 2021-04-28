@@ -3,11 +3,10 @@ package com.example.api.demo.Controllers;
 import com.example.api.demo.Models.Utilisateur;
 import com.example.api.demo.Repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
-import org.springframework.http.HttpStatus;
 
 import java.util.*;
 
@@ -28,7 +27,8 @@ public class UtilisateurController {
 
     //Affichafe des utilisateur par id
     @GetMapping("/users/{id}")
-    public ResponseEntity<Utilisateur> getUtilisateurById(@PathVariable(value = "id") Long UtilisateurId)
+    public ResponseEntity<Utilisateur> getUtilisateurById(@PathVariable(value = "id") Long UtilisateurId
+    )
             throws ResourceNotFoundException {
         Utilisateur Utilisateur = repository.findById(UtilisateurId)
                 .orElseThrow(() -> new ResourceNotFoundException("Utilisateur not found for this id :: " + UtilisateurId));
@@ -37,7 +37,7 @@ public class UtilisateurController {
 
     ///add user
     @PostMapping("/users")
-    public Utilisateur createUtilisateur(@RequestBody Utilisateur Utilisateur) {
+    public Utilisateur createUtilisateur(@RequestBody Utilisateur Utilisateur, @RequestHeader(name = "X-RAM-PERSIST", required = true) String headerPersist) {
         return repository.save(new Utilisateur(Utilisateur.getNom(), Utilisateur.getPrenom(), Utilisateur.getEmail()));
     }
 
