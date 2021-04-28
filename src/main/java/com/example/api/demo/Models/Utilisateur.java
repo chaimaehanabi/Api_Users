@@ -1,16 +1,9 @@
 package com.example.api.demo.Models;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.ToString;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -21,6 +14,9 @@ public class Utilisateur {
     public long id;
     public String nom;
     public String Prenom;
+    @javax.validation.constraints.Email
+    @Size(min = 5, max = 254)
+    @Column(length = 254, unique = true)
     public String Email;
     public String address;
     public String Nom_entreprise;
