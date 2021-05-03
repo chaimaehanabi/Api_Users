@@ -2,6 +2,7 @@ package com.example.api.demo.Controllers;
 
 import com.example.api.demo.Models.Utilisateur;
 import com.example.api.demo.Repository.UtilisateurRepository;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import java.util.*;
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
 @RequestMapping("/api")
+@Api(value = "Employee Management System", description = "Operations pertaining to employee in Employee Management System")
 public class UtilisateurController {
     @Autowired
     UtilisateurRepository repository;
